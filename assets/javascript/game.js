@@ -52,6 +52,7 @@ function reset()
 }
 
 var winDiv = document.getElementById("wins");
+var guessDiv = document.getElementById("guesses");
 
 // Getting the user input and checking if its a correct letter
 document.onkeyup = function (event) 
@@ -99,7 +100,6 @@ document.onkeyup = function (event)
         board += boardArray[i];
 
     wordDiv.textContent = board;
-    wordDiv.append(guessesLeft);
 
     //Checks the array to see if all of the letters have been selected.
     for (i = 0; i < computerWord.length; i++)
@@ -120,4 +120,6 @@ document.onkeyup = function (event)
         alert("Sorry, you are out of guesses. The word was " + computerWord + ".");
         reset();
     }
+
+    guessDiv.textContent = guessesLeft;
 }

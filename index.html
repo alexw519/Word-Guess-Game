@@ -5,25 +5,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Batman Hangman</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
 
-    <h2>Press Any Key To Start Guessing</h2>
-    <div id="word"></div>
-    <hr>
-    <div>
-        <p>Letters Guessed:</p>
-        <div id="lettersGuessed"></div>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Welcome To Batman Word Guess</h1>
+            <p class="lead">Press Any Key To Start Guessing!</p>
+        </div>
     </div>
-    <hr>
-    <div>
-        <p>Wins</p>
-        <div id="wins"></div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2 justify-content-center" id="word"></div>
+        </div>
+
+        <hr>
+        <div class="row">
+            <div class="col-md-6">
+                <p>Letters Guessed:</p>
+                <div id="lettersGuessed"></div>
+            </div>
+            <div class="col-md-6">
+                <p>Guesses Left:</p>
+                <div id="guesses"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <p>Wins</p>
+                <div id="wins"></div>
+            </div>
+        </div>
     </div>
+
     <script src="assets/javascript/game.js"></script>
 
     <!-- jQuery CDN -->
