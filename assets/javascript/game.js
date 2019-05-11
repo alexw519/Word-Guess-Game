@@ -10,6 +10,7 @@ var guessesLeft = 6;
 var winCount = 0;
 var userGuesses = "";
 var guessed = [];
+var hasBeenGuessed = false;
 
 //Setting up the boardArray for the random word.
 var boardArray = [];
@@ -25,7 +26,6 @@ for (i = 0; i < boardArray.length; i++)
     board += boardArray[i];
 
 wordDiv.textContent = board;
-/////////////////////////////////////////////////////////////////////////
 var guessedDiv = document.getElementById("lettersGuessed");
 
 function reset()
@@ -48,18 +48,18 @@ function reset()
     wordDiv.textContent = "";
     guessedDiv.textContent = "";
     wordDiv.textContent = board;
+    guessed = [];
 }
 
-/////////////////////////////////////////////////////////////////////////
 var winDiv = document.getElementById("wins");
-// winDiv.append(winCount);
 
 // Getting the user input and checking if its a correct letter
 document.onkeyup = function (event) 
 {
     var guess = event.key.toLowerCase();
     letterCheck = false;
-
+    hasBeenGuessed = false;
+    
     //Checking if letter is in the word, and if it is appears on screen
     for (i = 0; i < computerWord.length; i++) 
     {
@@ -68,15 +68,26 @@ document.onkeyup = function (event)
             boardArray[i] = " " + guess + " ";
             wordArray[i] = " _ ";
             letterCheck = true;
-            userGuesses += guess;
-            guessed.push(guess);
         }
     }
 
-    // for (i = 0; i < guessed.length; i++)
-    // {
+    for (i = 0; i < guessed.length; i++)
+    {
+        if (guess === guessed[i])
+        {
+            hasBeenGuessed = true;
+            letterCheck = true;
+            alert("This Letter Has Been Guessed");
+        }
+    }
 
-    // }
+    if (!hasBeenGuessed)
+    {
+        userGuesses += guess;
+        guessed.push(guess);
+        guessedDiv.append(" " + guess);
+    }
+
     if (letterCheck === false) 
     {
         guessesLeft--;
@@ -89,14 +100,10 @@ document.onkeyup = function (event)
 
     wordDiv.textContent = board;
     wordDiv.append(guessesLeft);
-    // wordDiv.textContent(guessesLeft);
 
     //Checks the array to see if all of the letters have been selected.
     for (i = 0; i < computerWord.length; i++)
         var wordCheck = boardArray.indexOf(" _ ");
-    
-    guessedDiv.append(" " + guess);
-    
 
     //Tells the user they won, updates the count and reloads the page.
     if (wordCheck === -1) 
@@ -104,7 +111,6 @@ document.onkeyup = function (event)
         alert("Correct, the word was " + computerWord + ". You win!");
         winCount++;
         winDiv.textContent = winCount;
-        // location.reload(true);
         reset();
     }
 
@@ -112,11 +118,6 @@ document.onkeyup = function (event)
     if (guessesLeft === 0)
     {
         alert("Sorry, you are out of guesses. The word was " + computerWord + ".");
-        // location.reload(true);
         reset();
     }
-
-    //Adding in letters guessed.
-    // var guessedDiv = document.getElementById("lettersGuessed");
-    // guessedDiv.append(" " + guess);
 }
