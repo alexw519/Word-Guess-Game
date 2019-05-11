@@ -1,0 +1,50 @@
+body
+{
+    color: yellow;
+    background-color: black;
+    font-size: 40px;
+    background-size: cover;
+    background-position: center;
+    font-family: 'Bangers', cursive;
+
+}
+
+.jumbotron
+{
+    background-color: black;
+    border-bottom: 10px yellow solid;
+    background: url("./assets/images/jokerLost");
+    font-family: 'Russo One', sans-serif;
+}
+
+#word
+{
+    padding-bottom: 50px;
+    font-size: 60px;
+}
+
+h3
+{
+    font-size: 30px;
+}
+
+#userLost
+{
+    visibility: hidden;
+}
+
+#userWon
+{
+    visibility: hidden;
+}
+
+img
+{
+    width: 300px;
+    height: 300px;
+}
+
+#wins
+{
+    padding-bottom: 40px;
+}

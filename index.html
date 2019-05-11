@@ -9,40 +9,60 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet">
 </head>
 
-<body>
+<body background="./assets/images/batmanBackground.jpg">
 
-    <div class="jumbotron jumbotron-fluid">
+    <div class="jumbotron jumbotron-fluid text-center">
         <div class="container">
-            <h1 class="display-4">Welcome To Batman Word Guess</h1>
+            <h1 class="display-8">Welcome To Batman Word Guess</h1>
             <p class="lead">Press Any Key To Start Guessing!</p>
         </div>
     </div>
+    <!-- <div id="header">
+        <h1>
+        Welcome To Batman Word Guess.
+        Press Any Key To Begin Guessing
+        </h1>
+    </div> -->
 
     <div class="container">
         <div class="row">
-            <div class="col-md-2 justify-content-center" id="word"></div>
+            <div class="col-md-12 text-center" id="word"></div>
         </div>
 
         <hr>
         <div class="row">
-            <div class="col-md-6">
-                <p>Letters Guessed:</p>
+            <div class="col-md-6 text-center">
+                <h3>Letters Guessed:</h3>
                 <div id="lettersGuessed"></div>
             </div>
-            <div class="col-md-6">
-                <p>Guesses Left:</p>
+            <div class="col-md-6 text-center">
+                <h3>Guesses Left:</h3>
                 <div id="guesses"></div>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-md-12">
-                <p>Wins</p>
+            <div class="col-md-12 text-center">
+                <h3>Wins</h3>
                 <div id="wins"></div>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-md-6 text-center" id = "userWon">
+                <p>The Joker has been captured!</p>
+                <img src="./assets/images/jokerLost.png">
+            </div>
+            <div class="col-md-6 text-center" id = "userLost">
+                <p>The Joker has got away!</p>
+                <img src="./assets/images/batmanLost.png">
+            </div>
+        </div>
+
     </div>
 
     <script src="assets/javascript/game.js"></script>
