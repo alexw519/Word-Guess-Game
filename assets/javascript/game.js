@@ -2,7 +2,7 @@
 var wordBank = ["batman", "joker", "batmobile", "night", "arkham", "robin", "knight", "asylum", "cowl", "vengence", "gotham", "detective", "vigilante"];
 
 
-//Picking a random word from the array.
+//Setting up the global variables
 var index = Math.floor(Math.random() * wordBank.length);
 var computerWord = wordBank[index];
 var letterCheck = false;
@@ -28,6 +28,7 @@ for (i = 0; i < boardArray.length; i++)
 wordDiv.textContent = board;
 var guessedDiv = document.getElementById("lettersGuessed");
 
+//Function to reset all of the variables so another game can be played.
 function reset() {
     index = Math.floor(Math.random() * wordBank.length);
     computerWord = wordBank[index];
@@ -50,6 +51,7 @@ function reset() {
     guessed = [];
 }
 
+//Linking the div variables to the divs on the html
 var winDiv = document.getElementById("wins");
 var guessDiv = document.getElementById("guesses");
 var winnerDiv = document.getElementById("userWon");
@@ -70,6 +72,7 @@ document.onkeyup = function (event) {
         }
     }
 
+    //If the letter has been guessed, it won't penalize the user and lets them know.
     for (i = 0; i < guessed.length; i++) {
         if (guess === guessed[i]) {
             hasBeenGuessed = true;
@@ -78,6 +81,7 @@ document.onkeyup = function (event) {
         }
     }
 
+    //If the letter hasn't been guessed, adds it the the array.
     if (!hasBeenGuessed) {
         userGuesses += guess;
         guessed.push(guess);
